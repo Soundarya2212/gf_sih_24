@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRDO Application Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* Basic styling for submit button */
+        button[type="submit"] {
+            width: 100%;
+            background-color: blue;
+            font-size: 20px;
+            padding: 10px;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <div id="log">
+                <li> <img src="drdologo.png" height="150px" alt="DRDO Logo"> </li>
+            </div>
+            <div id="logc">
+                <li>
+                    <b style="font-size: 20px;">RECRUITMENT & ASSESSMENT CENTRE</b><br>
+                    <b style="font-size: 20px;">DRDO, Ministry Of Defense</b><br>
+                    <b style="font-size: 20px;">Delhi, India</b>
+                </li>
+            </div>
+            <div class="con">
+                <div id="open">
+                    <li><a href="#">Open Vacations</a></li>
+                </div>
+                <div id="dld">
+                    <li><a href="#">Download Formats</a></li>
+                </div>
+                <div id="lgn"><a href="#">Login</a></div>
+            </div>
+        </ul>
+    </div>
+
+    <div class="header">
+        <div class="form-container">
+            <h1>DRDO Application Form</h1>
+            <form action="/upload_image" method="post" enctype="multipart/form-data">
+                <h2>Basic Details</h2>
+                <div>
+                    <div class="photoleftdetails" style="width: 700px;">
+                        <label for="subject">Subject Applied For:</label>
+                        <input type="text" id="subject" name="subject" placeholder="Enter subject" required>
+
+                        <label for="applicant_name">Applicant Name:</label>
+                        <input type="text" id="applicant_name" name="applicant_name" placeholder="Enter full name" required>
+                    </div>
+                    <div class="photo">
+                        <img src="user.jpeg" width="200px" height="200px" alt="User Photo">
+                    </div> 
+                </div>
+
+                <br><br><br><br><br><br><br><br><br><br><br><br>
+
+                <div class="famo">
+                    <span style="width: 50%; float: left;">
+                        <label for="father_name">Father's Name:</label>
+                        <input type="text" id="father_name" name="father_name" placeholder="Enter father's name" required>
+                    </span>
+                    <span style="width: 50%; float: right;">
+                        <label for="mother_name">Mother's Name:</label>
+                        <input type="text" id="mother_name" name="mother_name" placeholder="Enter mother's name" required>
+                    </span>
+                </div>    
+
+                <br><br><br><br><br><br>
+
+                <div style="display: flex; justify-content: space-between;">
+                    <span style="flex: 1; margin-right: 10px;">
+                        <label for="divyang">Are you Divyang Candidate (Physically Challenged):</label>
+                        <select id="divyang" name="divyang" required style="width: 100%;">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </span>
+                    <span style="flex: 1;">
+                        <label for="category" style="display: block;">Category:</label>
+                        <select id="category" name="category" required style="width: 100%;">
+                            <option value="general">General</option>
+                            <option value="obc">OBC</option>
+                            <option value="sc">SC</option>
+                            <option value="st">ST</option>
+                        </select>
+                    </span>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; gap: 7px;">
+                    <span style="flex: 1; box-sizing: border-box;">
+                        <label for="dob" style="display: block;">Date of Birth:</label>
+                        <input type="date" id="dob" name="dob" required style="width: 100%; padding: 10px; box-sizing: border-box; font-size: 16px;">
+                    </span>
+                    <span style="flex: 1; box-sizing: border-box;">
+                        <label for="nationality" style="display: block;">Nationality:</label>
+                        <input type="text" id="nationality" name="nationality" placeholder="Enter nationality" required style="width: 100%; padding: 10px; box-sizing: border-box; font-size: 16px;">
+                    </span>
+                </div>
+
+                <label><input type="radio" name="gender" value="male"> Male</label>
+                <label><input type="radio" name="gender" value="female"> Female</label>
+                <label><input type="radio" name="gender" value="other"> Other</label>
+
+                <h2>Address Details</h2>
+                <label for="correspondence_address">Correspondence Address:</label>
+                <textarea id="correspondence_address" name="correspondence_address" placeholder="Enter correspondence address" rows="3" required></textarea>
+
+                <h2>Educational Qualification</h2>
+                <table>
+                    <tr>
+                        <th>Examination Passed</th>
+                        <th>Subject</th>
+                        <th>University/Board</th>
+                        <th>Passing Year</th>
+                        <th>Division/Class</th>
+                        <th>Max Marks</th>
+                        <th>Obtained Marks</th>
+                        <th>Percentage</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="exam_passed" required></td>
+                        <td><input type="text" name="subject" required></td>
+                        <td><input type="text" name="university" required></td>
+                        <td><input type="text" name="year" required></td>
+                        <td><input type="text" name="division" required></td>
+                        <td><input type="text" name="max_marks" required></td>
+                        <td><input type="text" name="obtained_marks" required></td>
+                        <td><input type="text" name="percentage" required></td>
+                    </tr>
+                </table>
+
+                <h2>Experience</h2>
+                <label for="organization">Name of the Organization:</label>
+                <input type="text" id="organization" name="organization" required>
+
+                <label for="post">Name of the Post:</label>
+                <input type="text" id="post" name="post" required>
+
+                <label for="period">From-To (Period):</label>
+                <input type="text" id="period" name="period" required>
+
+                <label for="job_description">Job Description:</label>
+                <textarea id="job_description" name="job_description" rows="3" required></textarea>
+
+                <label for="reason">Reason for Leaving:</label>
+                <textarea id="reason" name="reason" rows="3" required></textarea>
+
+                <h2>Other Details</h2>
+                <div>
+                    <span style="float:left; width:50%;">
+                        <label for="registration_number">Registration Number in HRD/NCVT/NATS/NAPS PORTAL:</label>
+                        <input type="text" id="registration_number" name="registration_number" required>
+                    </span>
+                    <span style="float:right; width:50%; padding-right: 70px;">
+                        <label for="interviewed">Have you ever been interviewed in any DRDO lab?</label>
+                        <select id="interviewed" name="interviewed" required>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </span>
+                </div>
+
+                <h2>Document Upload</h2>
+                <label for="document">Upload Document (PDF, Image):</label>
+                <input type="file" id="file" name="files" accept=".pdf, .jpg, .jpeg, .png" multiple required>
+
+                <button type="submit">Submit Application</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
